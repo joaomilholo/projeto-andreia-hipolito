@@ -1,0 +1,27 @@
+---
+import { Quote, Star } from "@lucide/astro";
+
+const { text, name } = Astro.props;
+---
+
+<div
+  class="flex w-[300px] flex-col justify-between gap-5 bg-[#EAEBEB] p-7 font-[Inter] md:min-h-[250px]"
+>
+  <div class="flex flex-row items-center justify-between text-[#453131]">
+    <div class="flex flex-row gap-0.5 text-[#D8850F]">
+      <Star size={16} class="fill-[#D8850F]" />
+      <Star size={16} class="fill-[#D8850F]" />
+      <Star size={16} class="fill-[#D8850F]" />
+      <Star size={16} class="fill-[#D8850F]" />
+      <Star size={16} class="fill-[#D8850F]" />
+    </div>
+    <div>
+      <Quote size={24} />
+    </div>
+  </div>
+
+  <span class="text-sm flex-grow items-star text-[#6A6A6A]">
+    {text}
+  </span>
+  <span class="text-sm text-[#6A6A6A]"> - {name}. </span>
+</div>
