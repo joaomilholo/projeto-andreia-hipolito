@@ -5,9 +5,9 @@ const { text, icon: Icon, link } = Astro.props;
 <div>
   <a
     href={link}
-    class="w-auto inline-flex select-none transform cursor-pointer items-center justify-center gap-2.5 bg-[#D7AA67] p-[18px] text-center text-sm font-bold text-white transition-transform delay-75 duration-300 ease-in-out hover:scale-110 hover:bg-[#c39258]"
+    class="w-auto inline-flex select-none transform cursor-pointer items-center justify-center gap-2.5 bg-[#D7AA67] font-[Inter] p-[18px] text-center text-sm font-bold text-white transition-transform delay-75 duration-300 ease-in-out hover:scale-110 hover:bg-[#c39258]"
   >
-    {text}
     {Icon && <Icon size={16} />}
+    {text}
   </a>
 </div>

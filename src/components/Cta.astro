@@ -1,0 +1,39 @@
+---
+import {
+  Briefcase,
+  Gavel,
+  HandCoins,
+  MessageCircle,
+  Scale,
+  ShoppingCart,
+  Users,
+} from "@lucide/astro";
+import ServicesCard from "./ServicesCard.astro";
+import Button from "./Button.astro";
+---
+
+<section id="services" class="p-10 font-[Inter] bg-[#DFE0E0] w-full min-h-[600px]">
+  <div
+    class="p-10 flex flex-col w-full justify-center md:w-[1140px] md:m-auto lg:m-auto h-full text-white items-center gap-6"
+  >
+    <div
+      class="md:w-[845px] md:bg-[#EAEBEB] gap-6 justify-center items-center md:p-10 flex flex-col w-full"
+    >
+      <div class="text-center flex flex-col gap-[5px]">
+        <h3 class="text-sm md:text-lg uppercase font-[Inter] font-bold text-[#D7AA67]">Contato</h3>
+        <h2 class="text-3xl font-[Playfair] font-bold md:text-4xl text-black">
+          Estamos prontos para ajuda
+        </h2>
+        <p class="text-[#6A6A6A] font-[Inter]">
+          Fale conosco pelo WhatsApp e receba um atendimento rápido e personalizado.
+        </p>
+      </div>
+      <div
+        class="w-fit cursor-pointer bg-[#D7AA67] p-[18px]
+      font-bold text-sm font-[Inter] text-white transition-transform delay-75 duration-300 ease-in-out hover:scale-120 hover:bg-[#c39258]"
+      >
+        <a href="#" target="_blank"> Fale com um advogado </a>
+      </div>
+    </div>
+  </div>
+</section>
