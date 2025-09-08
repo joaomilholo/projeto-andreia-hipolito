@@ -1,9 +1,6 @@
 ---
-import Button from "../components/Button.astro";
 import "../styles/global.css";
-import ServicesCard from "../components/ServicesCard.astro";
-import { Scale } from "@lucide/astro";
-import TestimonialsCard from "../components/TestimonialsCard.astro";
+import Hero from "../components/Hero.astro";
 ---
 
 <html lang="en">
@@ -15,23 +12,6 @@ import TestimonialsCard from "../components/TestimonialsCard.astro";
     <title>Astro</title>
   </head>
   <body class="flex flex-col justify-center items-center gap-20 select-none">
-    <h1>Astro</h1>
-    <Button text="Entrar em Contato" link="#services" />
-    <ServicesCard
-      icon={Scale}
-      title="Direito Previdenciário"
-      text="Planejamento e concessão de benefícios do INSS com segurança e estratégia."
-      link="https://www.youtube.com/feed/subscriptions"
-    />
-    <div class="flex flex-row gap-10">
-      <TestimonialsCard
-        text="Procurei o escritório para revisar minha aposentadoria e fui surpreendida pela dedicação e clareza com que me atenderam. Hoje recebo o benefício justo que sempre mereci."
-        name="Carlos M"
-      />
-      <TestimonialsCard
-        text="Passei por uma situação difícil no INSS, mas com o apoio dos advogados consegui o benefício negado. O atendimento foi humano e estratégico."
-        name="Carlos M"
-      />
-    </div>
+    <Hero />
   </body>
 </html>

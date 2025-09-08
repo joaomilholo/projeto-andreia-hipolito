@@ -1,9 +1,13 @@
 ---
-const {text, icon: Icon, link} = Astro.props;
-
+const { text, icon: Icon, link } = Astro.props;
 ---
 
-<a href={link} class="flex select-none transform cursor-pointer items-center justify-center gap-2.5 bg-[#D7AA67] p-[18px] text-center text-sm font-bold text-white transition-transform delay-75 duration-300 ease-in-out hover:scale-110 hover:bg-[#c39258]">
-  {text}
-  {Icon && <Icon size={16}/>}
-</a>
+<div>
+  <a
+    href={link}
+    class="w-auto inline-flex select-none transform cursor-pointer items-center justify-center gap-2.5 bg-[#D7AA67] p-[18px] text-center text-sm font-bold text-white transition-transform delay-75 duration-300 ease-in-out hover:scale-110 hover:bg-[#c39258]"
+  >
+    {text}
+    {Icon && <Icon size={16} />}
+  </a>
+</div>
