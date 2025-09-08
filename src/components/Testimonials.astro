@@ -1,0 +1,37 @@
+---
+import { Briefcase, Gavel, HandCoins, Scale, ShoppingCart, Users } from "@lucide/astro";
+import ServicesCard from "./ServicesCard.astro";
+import TestimonialsCard from "./TestimonialsCard.astro";
+---
+
+<section id="services" class="p-10 font-[Inter] bg-[#453130] w-full min-h-[600px]">
+  <div
+    class="p-10 flex flex-col justify-center md:w-[1440px] md:m-auto lg:m-auto h-full text-white md:items-start items-center gap-6"
+  >
+    <div class="text-center md:text-start flex flex-col gap-[5px]">
+      <h3 class="text-sm md:text-lg uppercase font-bold text-[#D7AA67]">Conheça Nossos Serviços</h3>
+      <h2 class="text-3xl font-[Playfair] font-bold md:text-4xl">Áreas de Atuação</h2>
+    </div>
+
+    <div class="flex m-auto flex-col md:flex-row gap-5 items-center md:justify-center">
+      <TestimonialsCard
+        text="Procurei o escritório para revisar minha aposentadoria e fui surpreendida pela dedicação e clareza com que me atenderam. Hoje recebo o benefício justo que sempre mereci."
+        name="Carlos M"
+      />
+      <TestimonialsCard
+        text="Precisei de orientação em um processo trabalhista e recebi todo o apoio necessário. A equipe foi atenciosa e me deixou tranquilo em cada etapa."
+        name="Mariana S"
+      />
+
+      <TestimonialsCard
+        text="Tive um problema com um contrato comercial e encontrei no escritório a segurança que precisava. Resolveram tudo com profissionalismo e rapidez."
+        name="João P"
+      />
+
+      <TestimonialsCard
+        text="Sempre tive dúvidas sobre meus direitos, e aqui encontrei respostas claras e objetivas. Senti que realmente se importaram com meu caso."
+        name="Fernanda L"
+      />
+    </div>
+  </div>
+</section>

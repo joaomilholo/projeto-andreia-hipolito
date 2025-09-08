@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Hero from "../components/Hero.astro";
 import Services from "../components/Services.astro";
+import Testimonials from "../components/Testimonials.astro";
 ---
 
 <html lang="en">
@@ -12,8 +13,9 @@ import Services from "../components/Services.astro";
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
   </head>
-  <body class="flex flex-col justify-center items-centerselect-none">
+  <body class="flex flex-col justify-center items-center select-none">
     <Hero />
     <Services />
+    <Testimonials />
   </body>
 </html>
