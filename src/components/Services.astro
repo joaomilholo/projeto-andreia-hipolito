@@ -1,0 +1,54 @@
+---
+import { Briefcase, Gavel, HandCoins, Scale, ShoppingCart, Users } from "@lucide/astro";
+import ServicesCard from "./ServicesCard.astro";
+---
+
+<section id="services" class="p-10 font-[Inter] bg-[#DFE0E0] w-full min-h-[600px]">
+  <div
+    class="p-10 flex flex-col justify-center w-full md:m-auto lg:m-auto h-full text-white items-center gap-6"
+  >
+    <div class="text-center flex flex-col gap-[5px]">
+      <h3 class="text-sm md:text-lg uppercase font-bold text-[#D7AA67]">Conheça Nossos Serviços</h3>
+      <h2 class="text-3xl font-[Playfair] font-bold md:text-4xl text-black">Áreas de Atuação</h2>
+    </div>
+
+    <div class="flex flex-col lg:grid lg:grid-cols-3 md:grid md:grid-cols-2 gap-5 items-center">
+      <ServicesCard
+        icon={Scale}
+        title="Direito Previdenciário"
+        text="Planejamento e concessão de benefícios do INSS com segurança e estratégia."
+        link=""
+      />
+      <ServicesCard
+        icon={Briefcase}
+        title="Direito Trabalhista"
+        text="Garantimos direitos trabalhistas e assessoramos em acordos e reclamações."
+        link=""
+      />
+      <ServicesCard
+        icon={Users}
+        title="Direito Civil"
+        text="Soluções em divórcios, contratos, guarda e inventários de forma estratégica."
+        link=""
+      />
+      <ServicesCard
+        icon={Gavel}
+        title="Direito Criminal"
+        text="Atuação em processos criminais com ética, estratégia e proteção aos clientes."
+        link=""
+      />
+      <ServicesCard
+        icon={ShoppingCart}
+        title="Direito do Consumidor"
+        text="Defesa de direitos em relações de consumo, garantindo justiça e segurança."
+        link=""
+      />
+      <ServicesCard
+        icon={HandCoins}
+        title="Direito Tributário"
+        text="Consultoria e defesa em questões fiscais e tributárias com clareza e eficiência."
+        link=""
+      />
+    </div>
+  </div>
+</section>
