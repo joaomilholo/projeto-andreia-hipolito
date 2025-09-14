@@ -74,18 +74,20 @@ import Button from "./Button.astro";
     const menu = document.getElementById("mobile-menu");
     const closeButton = document.getElementById("close-menu");
 
-    button.addEventListener("click", () => {
-      menu.style.right = "0";
-    });
+    if (button && menu && closeButton) {
+      button.addEventListener("click", () => {
+        menu.style.right = "0";
+      });
 
-    closeButton.addEventListener("click", () => {
-      menu.style.right = "-50%";
-    });
-
-    menu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
+      closeButton.addEventListener("click", () => {
         menu.style.right = "-50%";
       });
-    });
+
+      menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menu.style.right = "-50%";
+        });
+      });
+    }
   </script>
 </nav>
