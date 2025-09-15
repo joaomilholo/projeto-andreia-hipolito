@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
 import LawyerInfo from "../components/LawyerInfo.astro";
+import OfficeInfo from "../components/OfficeInfo.astro";
 ---
 
 <html lang="pt-BR">
@@ -13,9 +14,10 @@ import LawyerInfo from "../components/LawyerInfo.astro";
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
   </head>
-  <body class="flex flex-col justify-center items-center select-none scroll-smooth">
+  <body class="flex flex-col justify-center items-center scroll-smooth">
     <Navbar />
     <LawyerInfo />
+    <OfficeInfo />
     <Footer />
   </body>
 </html>
