@@ -1,12 +1,6 @@
----
-import { Briefcase, Gavel, HandCoins, Scale, ShoppingCart, Users } from "@lucide/astro";
-import ServicesCard from "./ServicesCard.astro";
-import TestimonialsCard from "./TestimonialsCard.astro";
----
-
-<section id="contact" class="p-10 font-[Inter] bg-[#453130] w-full">
+<section id="contact" class="md:p-10 p-5 font-[Inter] bg-[#453130] w-full">
   <div
-    class="p-10 flex flex-col justify-center w-full lg:w-[1440px] m-auto text-white md:items-start items-center gap-5"
+    class="md:p-10 p-5 flex flex-col justify-center w-full lg:w-[1440px] m-auto text-white md:items-start items-center gap-5"
   >
     <div class="text-center
     md:text-start
@@ -16,5 +10,292 @@ import TestimonialsCard from "./TestimonialsCard.astro";
       <h3 class="text-sm md:text-lg uppercase font-bold text-[#D7AA67]">Dúvidas ?</h3>
       <h2 class="text-3xl font-[Playfair] font-bold md:text-4xl">Envie sua dúvida</h2>
     </div>
+    <div class="w-full flex flex-col md:flex-row gap-5">
+      <div class="md:w-1/2 w-full gap-5">
+        <form action="" id="contact-form" novalidate class="w-full mx-auto space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="relative">
+              <input
+                id="name"
+                type="text"
+                placeholder=" "
+                class="peer w-full p-4 text-black bg-white focus:outline-none"
+                aria-invalid="false"
+                autocomplete="name"
+              />
+              <span id="error-name" class="hidden mt-1 text-xs text-red-500 font-bold" role="alert"
+              ></span>
+              <label
+                for="name"
+                class="absolute left-3 top-1/2 -translate-y-1/2 px-1 text-transparent text-sm transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-base peer-focus:bg-[#423131] peer-focus:text-[#D7AA67]"
+              >
+                Nome Completo
+              </label>
+            </div>
+            <div class="relative">
+              <input
+                id="email"
+                type="email"
+                placeholder=" "
+                class="peer w-full p-4 text-black bg-white focus:outline-none"
+                aria-invalid="false"
+                autocomplete="email"
+              />
+              <span id="error-email" class="hidden mt-1 text-xs text-red-500 font-bold" role="alert"
+              ></span>
+              <label
+                for="email"
+                class="absolute left-3 top-1/2 -translate-y-1/2 px-1 text-transparent text-sm transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-base peer-focus:bg-[#423131] peer-focus:text-[#D7AA67]"
+              >
+                Email
+              </label>
+            </div>
+            <div class="relative">
+              <input
+                id="tel"
+                type="tel"
+                pattern="\d{9,11}"
+                placeholder=" "
+                class="peer w-full p-4 text-black bg-white focus:outline-none"
+                aria-invalid="false"
+                autocomplete="tel"
+              />
+              <span id="error-tel" class="hidden mt-1 text-xs text-red-500 font-bold" role="alert"
+              ></span>
+              <label
+                for="tel"
+                class="absolute left-3 top-1/2 -translate-y-1/2 px-1 text-transparent text-sm transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-base peer-focus:bg-[#423131] peer-focus:text-[#D7AA67]"
+              >
+                Telefone
+              </label>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="relative">
+              <select
+                id="service"
+                class="peer w-full p-4 text-black bg-white"
+                aria-invalid="false"
+                autocomplete="off"
+              >
+                <option value="" disabled selected hidden> </option>
+                <option value="Cálculo para aposentadoria">Cálculo para aposentadoria</option>
+                <option value="Planejamento previdenciário">Planejamento previdenciário</option>
+                <option value="Concessão de Benefício"
+                  >Concessão de Benefício (Auxílio doença, BPC, Aposentadoria)</option
+                >
+                <option value="Indeferimento de Requerimento do INSS"
+                  >Indeferimento de Requerimento do INSS</option
+                >
+                <option value="Causas Trabalhistas">Causas Trabalhistas</option>
+                <option value="Curatela">Curatela</option>
+                <option value="Inventário">Inventário</option>
+                <option value="Outro">Outro</option>
+              </select>
+              <span
+                id="error-service"
+                class="hidden mt-1 text-xs text-red-500 font-bold"
+                role="alert"></span>
+              <label
+                for="service"
+                class="absolute left-3 top-1/2 -translate-y-1/2 px-1 text-gray-400 text-sm transition-all
+     peer-placeholder-shown:top-1/2
+     peer-placeholder-shown:text-transparent
+     peer-placeholder-shown:text-base
+     peer-focus:top-0
+     peer-focus:text-base
+     peer-focus:bg-[#423131]
+     peer-focus:text-[#D7AA67]"
+              >
+                Qual atendimento você deseja?
+              </label>
+            </div>
+            <div class="relative">
+              <select
+                id="preference"
+                class="peer w-full p-4 text-black bg-white"
+                aria-invalid="false"
+                autocomplete="off"
+              >
+                <option value="" disabled selected hidden> </option>
+                <option value="Presencialmente">Presencialmente, no escritório</option>
+                <option value="On-line, por chamada de vídeo">On-line, por chamada de vídeo</option>
+              </select>
+              <span
+                id="error-preference"
+                class="hidden mt-1 text-xs text-red-500 font-bold"
+                role="alert"></span>
+              <label
+                for="preference"
+                class="absolute left-3 top-1/2 -translate-y-1/2 px-1 text-gray-400 text-sm transition-all
+     peer-placeholder-shown:top-1/2
+     peer-placeholder-shown:text-transparent
+     peer-placeholder-shown:text-base
+     peer-focus:top-0
+     peer-focus:text-base
+     peer-focus:bg-[#423131]
+     peer-focus:text-[#D7AA67]"
+              >
+                Prefiro ser atendido:
+              </label>
+            </div>
+          </div>
+          <div class="relative">
+            <textarea
+              id="message"
+              rows="5"
+              placeholder=" "
+              class="peer w-full p-4 text-black bg-white focus:outline-none"
+              aria-invalid="false"
+              autocomplete="off"></textarea>
+            <span id="error-message" class="hidden mt-1 text-xs text-red-500 font-bold" role="alert"
+            ></span>
+            <label
+              for="message"
+              class="absolute left-3 top-5 -translate-y-1/2 px-1 text-transparent text-sm transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-base peer-focus:bg-[#423131] peer-focus:text-[#D7AA67]"
+            >
+              Conte mais sobre seu caso
+            </label>
+          </div>
+          <button
+            id="submit-btn"
+            type="submit"
+            class="w-full md:w-auto inline-flex select-none transform cursor-pointer items-center justify-center gap-2.5 bg-[#D7AA67] font-[Inter] p-[18px] text-center text-sm font-bold text-white transition-transform delay-75 duration-300 ease-in-out hover:scale-110 hover:bg-[#c39258] disabled:opacity-60 disabled:cursor-not-allowed"
+            >Enviar Formulário</button
+          >
+        </form>
+      </div>
+      <div class="md:w-1/2 w-full bg-amber-800">
+        <h3 class="text-sm md:text-lg uppercase font-bold text-[#D7AA67]">Escritório</h3>
+        <h2 class="text-3xl font-[Playfair] font-bold md:text-4xl">Envie sua dúvida</h2>
+      </div>
+    </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contact-form") as HTMLFormElement | null;
+    const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement | null;
+    type FieldKey = "name" | "email" | "tel" | "service" | "preference";
+    const touched: Record<FieldKey, boolean> = {
+      name: false,
+      email: false,
+      tel: false,
+      service: false,
+      preference: false,
+    };
+
+    const telInput = document.getElementById("tel") as HTMLInputElement | null;
+    if (telInput && !telInput.hasAttribute("data-listener")) {
+      telInput.addEventListener("input", function (this: HTMLInputElement) {
+        let v = this.value.replace(/\D/g, "");
+        if (v.length > 11) v = v.slice(0, 11);
+        if (v.length > 6) {
+          this.value = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
+        } else if (v.length > 2) {
+          this.value = `(${v.slice(0, 2)}) ${v.slice(2)}`;
+        } else if (v.length > 0) {
+          this.value = `(${v}`;
+        } else {
+          this.value = "";
+        }
+      });
+      telInput.setAttribute("data-listener", "true");
+    }
+
+    const validators: Record<FieldKey, { validate: (value: string) => boolean; message: string }> =
+      {
+        name: {
+          validate: (v) => !!v.trim(),
+          message: "Preencha seu nome completo.",
+        },
+        email: {
+          validate: (v) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v.trim()),
+          message: "Digite um e-mail válido.",
+        },
+        tel: {
+          validate: (v) => /^\d{9,11}$/.test(v.replace(/\D/g, "")),
+          message: "Digite um telefone válido (apenas números, 9 a 11 dígitos).",
+        },
+        service: {
+          validate: (v) => !!v,
+          message: "Selecione um atendimento.",
+        },
+        preference: {
+          validate: (v) => !!v,
+          message: "Selecione uma preferência de atendimento.",
+        },
+      };
+
+    function getInputValue(field: FieldKey): string {
+      const el = document.getElementById(field) as HTMLInputElement | HTMLSelectElement | null;
+      if (!el) return "";
+      if (field === "tel") return el.value.replace(/\D/g, "");
+      return el.value.trim();
+    }
+
+    function showError(field: FieldKey, hasError: boolean, message: string) {
+      const errorSpan = document.getElementById(`error-${field}`) as HTMLSpanElement | null;
+      const input = document.getElementById(field) as HTMLInputElement | HTMLSelectElement | null;
+      if (!errorSpan || !input) return;
+      if (hasError && touched[field]) {
+        errorSpan.textContent = message;
+        errorSpan.classList.remove("hidden");
+        input.setAttribute("aria-invalid", "true");
+        input.classList.add("border", "border-red-500");
+      } else {
+        errorSpan.textContent = "";
+        errorSpan.classList.add("hidden");
+        input.setAttribute("aria-invalid", "false");
+        input.classList.remove("border", "border-red-500");
+      }
+    }
+
+    function validateForm(showAllErrors = false): boolean {
+      let hasAnyError = false;
+      (Object.keys(validators) as FieldKey[]).forEach((field) => {
+        const value = getInputValue(field);
+        const isValid = validators[field].validate(value);
+        if (!isValid) hasAnyError = true;
+        showError(field, !isValid, validators[field].message);
+      });
+      if (submitBtn) submitBtn.disabled = hasAnyError;
+      return !hasAnyError;
+    }
+
+    (Object.keys(validators) as FieldKey[]).forEach((field) => {
+      const el = document.getElementById(field);
+      if (el) {
+        el.addEventListener("input", () => {
+          touched[field] = true;
+          validateForm();
+        });
+        el.addEventListener("change", () => {
+          touched[field] = true;
+          validateForm();
+        });
+      }
+    });
+
+    validateForm(false);
+
+    form?.addEventListener("submit", (e) => {
+      e.preventDefault();
+      (Object.keys(validators) as FieldKey[]).forEach((k) => (touched[k] = true));
+      if (!validateForm(true)) return;
+
+      const errorSpan = document.getElementById("error-message");
+      if (errorSpan) {
+        errorSpan.textContent = "Formulário enviado com sucesso!";
+        errorSpan.classList.remove("hidden");
+        errorSpan.classList.remove("text-red-500");
+        errorSpan.classList.add("text-green-600");
+      }
+      form?.reset();
+      (Object.keys(validators) as FieldKey[]).forEach((k) => (touched[k] = false));
+      validateForm(false);
+    });
+  });
+</script>

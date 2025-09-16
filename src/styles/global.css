@@ -12,3 +12,7 @@
     transform: translateX(0);
   }
 }
+
+h3 {
+  font-family: "Inter", sans-serif;
+}
