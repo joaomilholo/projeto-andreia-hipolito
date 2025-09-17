@@ -6,7 +6,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "build": "astro build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@lucide/astro": "^0.542.0",
@@ -16,6 +19,7 @@
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1"
   }
