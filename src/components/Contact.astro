@@ -8,11 +8,12 @@
           <h3 class="text-base md:text-lg uppercase font-bold text-[#D7AA67]">Dúvidas ?</h3>
           <h2 class="text-3xl font-bold md:text-4xl">Envie sua dúvida</h2>
         </div>
-        <form action="" id="contact-form" novalidate class="w-full mx-auto space-y-5">
+        <form action="" method="post" id="contact-form" novalidate class="w-full mx-auto space-y-5">
           <div class="grid grid-cols-1 lg:grid-cols-3 md:flex-1 gap-4">
             <div class="relative">
               <input
                 id="name"
+                name="name"
                 type="text"
                 placeholder=" "
                 class="peer w-full p-4 text-black bg-white focus:outline-none"
@@ -34,6 +35,7 @@
               <input
                 id="email"
                 type="email"
+                name="email"
                 placeholder=" "
                 class="peer w-full p-4 text-black bg-white focus:outline-none"
                 aria-invalid="false"
@@ -54,6 +56,7 @@
               <input
                 id="tel"
                 type="tel"
+                name="tel"
                 pattern="\d{9,11}"
                 placeholder=" "
                 class="peer w-full p-4 text-black bg-white focus:outline-none"
@@ -77,6 +80,7 @@
             <div class="relative">
               <select
                 id="preference"
+                name="preference"
                 class="peer w-full p-4 text-black bg-white"
                 aria-invalid="false"
                 autocomplete="off"
@@ -106,6 +110,7 @@
             <div class="relative">
               <select
                 id="service"
+                name="service"
                 class="peer w-full p-4 text-black bg-white"
                 aria-invalid="false"
                 autocomplete="off"
@@ -140,6 +145,7 @@
             <textarea
               id="message"
               rows="5"
+              name="message"
               placeholder=" "
               class="peer w-full p-4 text-black bg-white focus:outline-none"
               aria-invalid="false"
@@ -182,7 +188,6 @@
 </section>
 
 <script>
-  // Esconde o label do select quando uma opção é selecionada
   function handleSelectLabel(selectId: string, labelClass: string, formId: string) {
     const select = document.getElementById(selectId) as HTMLSelectElement | null;
     const label =
@@ -203,7 +208,7 @@
     select.addEventListener("change", toggleLabel);
     if (form) {
       form.addEventListener("reset", () => {
-        setTimeout(toggleLabel, 0); // Aguarda o reset aplicar
+        setTimeout(toggleLabel, 0);
       });
     }
     toggleLabel();
@@ -224,18 +229,37 @@
 
     const telInput = document.getElementById("tel") as HTMLInputElement | null;
     if (telInput && !telInput.hasAttribute("data-listener")) {
-      telInput.addEventListener("input", function (this: HTMLInputElement) {
-        let v = this.value.replace(/\D/g, "");
+      let lastValue = telInput.value;
+      let lastCursor = telInput.selectionStart || 0;
+      telInput.addEventListener("keydown", function (e) {
+        lastValue = telInput.value;
+        lastCursor = telInput.selectionStart || 0;
+      });
+      telInput.addEventListener("input", function (this: HTMLInputElement, ev: Event) {
+        const input = this;
+        let v = input.value.replace(/\D/g, "");
         if (v.length > 11) v = v.slice(0, 11);
+        let masked = "";
         if (v.length > 6) {
-          this.value = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
+          masked = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
         } else if (v.length > 2) {
-          this.value = `(${v.slice(0, 2)}) ${v.slice(2)}`;
+          masked = `(${v.slice(0, 2)}) ${v.slice(2)}`;
         } else if (v.length > 0) {
-          this.value = `(${v}`;
-        } else {
-          this.value = "";
+          masked = `(${v}`;
         }
+        let nextCursor = input.selectionStart || masked.length;
+        if (input.value.length > lastValue.length) {
+          let diff = masked.length - input.value.length;
+          nextCursor += diff;
+        }
+        if (nextCursor < 0) nextCursor = 0;
+        if (nextCursor > masked.length) nextCursor = masked.length;
+        input.value = masked;
+        setTimeout(() => {
+          input.setSelectionRange(nextCursor, nextCursor);
+        }, 0);
+        lastValue = input.value;
+        lastCursor = nextCursor;
       });
       telInput.setAttribute("data-listener", "true");
     }
@@ -333,4 +357,33 @@
       validateForm(false);
     });
   });
+
+  if (typeof window !== "undefined" && (window as any).emailjs) {
+    (window as any).emailjs.init("dFMoMLS5eeZEWL5Le");
+  }
+
+  const formEl = document.getElementById("contact-form") as HTMLFormElement | null;
+  const buttonEl = document.getElementById("submit-btn") as HTMLButtonElement | null;
+
+  if (formEl && buttonEl && typeof window !== "undefined" && (window as any).emailjs) {
+    formEl.addEventListener("submit", function (e) {
+      e.preventDefault();
+      buttonEl.disabled = true;
+      buttonEl.innerText = "Enviando...";
+
+      (window as any).emailjs
+        .sendForm("service_hsj9wui", "template_xgzsjp1", formEl)
+        .then(() => {
+          formEl.reset();
+        })
+        .catch((err: unknown) => {
+          console.error("Erro:", err);
+        })
+        .finally(() => {
+          buttonEl.disabled = false;
+          buttonEl.innerText = "Enviar Formulário";
+        });
+    });
+  }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
