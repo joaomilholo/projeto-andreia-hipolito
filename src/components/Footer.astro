@@ -2,46 +2,68 @@
 import { PhoneCall, Mail, MessageCircle, Instagram } from "@lucide/astro";
 ---
 
-<footer id="footer" class="p-10 pb-0 font-[Inter] bg-[#453130] w-full">
-  <div
-    class="md:p-10 p-5 h-full md:items-start w-full flex flex-col m-auto md:flex-row md:justify-between items-center gap-5 lg:w-[1440px] border-b-1 border-t-1 border-[#D7AA67]"
-  >
-    <img src="/logo.png" alt="logo" class="w-52 h-52" />
-    <div class="gap-2.5 flex-col flex text-white">
-      <h3 class="text-sm md:text-lg uppercase font-[Inter] font-bold text-[#D7AA67]">Menus</h3>
-      <a href="/" class="hover:text-[#C39258]">Home</a>
-      <a href="/#services" class="hover:text-[#C39258]">Serviços</a>
-      <a href="/#testimonials" class="hover:text-[#C39258]">Depoimentos</a>
-      <a href="/sobre" class="hover:text-[#C39258]">Sobre nós</a>
-      <a href="/sobre" class="hover:text-[#C39258]"> Contato</a>
+<footer id="footer" class="p-10 pb-0 bg-[#453130] w-full">
+  <div class="lg:w-[1440px] m-auto w-full">
+    <div
+      class="md:flex-row md:justify-between flex flex-col items-center md:items-start md:p-10 gap-5 p-5 border-b-1 border-t-1 border-[#D7AA67]"
+    >
+      <img src="/logo.png" alt="logo" class="w-52 h-52" />
+
+      <div class="gap-2.5 flex flex-col text-white text-center md:text-left">
+        <h3 class="text-sm md:text-lg uppercase font-bold text-[#D7AA67]">Menus</h3>
+        <a href="/" class="hover:text-[#C39258]">Home</a>
+        <a href="/#services" class="hover:text-[#C39258]">Serviços</a>
+        <a href="/#testimonials" class="hover:text-[#C39258]">Depoimentos</a>
+        <a href="/sobre" class="hover:text-[#C39258]">Sobre nós</a>
+        <a href="/sobre" class="hover:text-[#C39258]"> Contato</a>
+      </div>
+
+      <div class="gap-2.5 flex flex-col text-white text-center md:text-left">
+        <h3 class="text-sm md:text-lg uppercase font-bold text-[#D7AA67]">Contatos</h3>
+        <span class="flex flex-row gap-2.5 items-center justify-center md:justify-start"
+          ><PhoneCall /> (00) 0000-0000</span
+        >
+        <span class="flex flex-row gap-2.5 items-center justify-center md:justify-start"
+          ><MessageCircle /> (00) 0000-0000</span
+        >
+        <span class="flex flex-row gap-2.5 items-center justify-center md:justify-start"
+          ><Mail /> andreiahipolito.adv@hotmail.com</span
+        >
+        <a
+          href="https://www.instagram.com/hipolito_advocacia/"
+          target="_blank"
+          class="flex flex-row gap-2.5 items-center justify-center md:justify-start"
+        >
+          <Instagram />
+          @hipolito_advocacia
+        </a>
+      </div>
+
+      <div class="flex flex-col text-white text-center md:text-left">
+        <h3 class="text-sm md:text-lg uppercase font-bold text-[#D7AA67]">Escritório</h3>
+        <p class="font-bold">Ipatinga | MG</p>
+        <p class="">
+          Av. Felipe dos Santos, n° 435, <br /> Loja 01, Cidade Nobre, Ipatinga <br /> CEP 35162-369
+        </p>
+      </div>
     </div>
 
-    <div class="gap-2.5 flex-col flex text-white">
-      <h3 class="text-sm md:text-lg uppercase font-[Inter] font-bold text-[#D7AA67]">Contatos</h3>
-      <span class="flex flex-row gap-2.5"><PhoneCall /> (00) 0000-0000</span>
-      <span class="flex flex-row gap-2.5"><MessageCircle /> (00) 0000-0000</span>
-      <span class="flex flex-row gap-2.5"><Mail /> andreiahipolito.adv@hotmail.com</span>
-      <span class="flex flex-row gap-2.5"
-        ><a href=" " target="_blank" class="md:block hidden">
-          <Instagram />
-        </a>
-      </span>
-    </div>
-    <div class="flex flex-col w-full text-white">
-      <h3 class="text-sm md:text-lg uppercase font-[Inter] font-bold text-[#D7AA67]">Escritório</h3>
-      <p class="font-[Inter] font-bold">Ipatinga | MG</p>
-      <p class="font-[Inter]">
-        Av. Felipe dos Santos, n° 435, <br /> Loja 01, Cidade Nobre, Ipatinga <br /> CEP 35162-369
+    <div
+      class="p-5 text-white flex flex-col md:flex-row justify-center items-center md:justify-between gap-5"
+    >
+      <a
+        href="https://www.instagram.com/hipolito_advocacia/"
+        target="_blank"
+        class="md:block hidden"
+      >
+        <Instagram />
+      </a>
+      <p class="text-sm text-[#EDEDED] text-center md:text-left">
+        Andréia Hipólito &copy; 2025. Todos os direitos reservados. | Desenvolvido por
+        <a href="https://github.com/joaomilholo" class="cursor-pointer font-bold" target="_blank"
+          >João Milholo</a
+        >
       </p>
     </div>
-  </div>
-  <div
-    class="h-full p-5 text-white md:items-start flex flex-row m-auto md:flex-row md:justify-between justify-center gap-5 lg:w-[1440px] items-center"
-  >
-    <a href="" target="_blank" class="md:block hidden"> <Instagram /> </a>
-    <p class="text-sm text-[#EDEDED]">
-      Andréia Hipólito &copy; 2025. Todos os direitos reservados. | Desenvolvido por
-      <strong>João Milholo</strong>
-    </p>
   </div>
 </footer>
