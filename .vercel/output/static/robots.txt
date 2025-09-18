@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hipolitoadvocacia.com.br/sitemap.xml
