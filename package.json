@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/vercel": "^8.2.7",
+    "@fortawesome/free-solid-svg-icons": "^7.0.1",
     "@lucide/astro": "^0.542.0",
     "@tailwindcss/vite": "^4.1.13",
     "astro": "^5.13.5",
