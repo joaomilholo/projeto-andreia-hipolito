@@ -237,7 +237,7 @@
   });
 
   if (typeof window !== "undefined" && (window as any).emailjs) {
-    (window as any).emailjs.init("dFMoMLS5eeZEWL5Le");
+    (window as any).emailjs.init("U5U1qN4IQKU2-4H0x");
   }
 
   const formEl = document.getElementById("contact-form") as HTMLFormElement | null;
@@ -250,7 +250,7 @@
       buttonEl.innerText = "Enviando...";
 
       (window as any).emailjs
-        .sendForm("service_hsj9wui", "template_xgzsjp1", formEl)
+        .sendForm("service_tutm14p", "template_y6v7hpo", formEl)
         .then(() => {
           formEl.reset();
         })
